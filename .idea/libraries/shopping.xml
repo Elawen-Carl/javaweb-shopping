@@ -1,0 +1,36 @@
+<component name="libraryTable">
+  <library name="shopping">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/commons-fileupload-1.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/commons-io-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.45-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/taglibs-standard-spec-1.2.1.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/classworlds" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/com" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/commons-codec" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/commons-collections" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/commons-io" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/commons-lang" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/junit" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/net" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/org" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/xmlpull" />
+      <root url="file://$PROJECT_DIR$/../../../../repository/xpp3" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/classworlds" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/com" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/commons-codec" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/commons-collections" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/commons-io" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/commons-lang" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/junit" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/net" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/org" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/xmlpull" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../repository/xpp3" recursive="false" />
+  </library>
+</component>

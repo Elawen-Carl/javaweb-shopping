@@ -1,0 +1,125 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "admin/pages/welcome.jsp?t=1"
+  },
+  "logoInfo": {
+    "title": "LAYUI MINI",
+    "image": "admin/images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "主页模板",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "主页一",
+              "href": "admin/pages/welcome.jsp",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "用户管理",
+          "href": "",
+          "icon": "fa fa-address-book",
+          "target": "_self",
+          "child":[
+            {
+              "title": "用户列表",
+              "href": "admin/pages/user/list.jsp",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "管理员",
+          "href": "",
+          "icon": "fa fa-address-book",
+          "target": "_self",
+          "child":[
+            {
+              "title": "管理员列表",
+              "href": "admin/pages/admin/list.jsp",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "商品管理",
+          "href": "",
+          "icon": "fa fa-address-book",
+          "target": "_self",
+          "child":[
+            {
+              "title": "商品列表",
+              "href": "admin/pages/product/list.jsp",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "类别管理",
+          "href": "",
+          "icon": "fa fa-address-book",
+          "target": "_self",
+          "child":[
+            {
+              "title": "类别列表",
+              "href": "admin/pages/category/list.jsp",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "系统设置",
+          "href": "admin/pages/setting.html",
+          "icon": "fa fa-gears",
+          "target": "_self"
+        },
+        {
+          "title": "登录模板",
+          "href": "",
+          "icon": "fa fa-flag-o",
+          "target": "_self",
+          "child": [
+            {
+              "title": "登录-1",
+              "href": "admin/pages/login-1.html",
+              "icon": "fa fa-stumbleupon-circle",
+              "target": "_blank"
+            }
+          ]
+        },
+        {
+          "title": "异常页面",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "404页面",
+              "href": "admin/pages/404.html",
+              "icon": "fa fa-hourglass-end",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

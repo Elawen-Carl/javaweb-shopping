@@ -1,0 +1,32 @@
+{
+  "msg": "",
+  "code": 0,
+  "count": 2,
+  "data": [
+    {
+      "authorityId": 1,
+      "authorityName": "boboge",
+      "orderNumber": 1,
+      "menuUrl": "123",
+      "menuIcon": "layui-icon-set",
+      "authority": "authorities:add",
+      "createtime": "2022-03-04",
+      "updateTime": "2018/07/13 09:13:42",
+      "checked": 0,
+      "isMenu": 0,
+      "parentId": -1
+    },
+    {
+      "authorityId": 2,
+      "createtime": "2022-03-05",
+      "authorityName": "风格化法国",
+      "orderNumber": 2,
+      "menuUrl": "豆腐干岁的法国",
+      "authority": "authorities:add",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 1
+    }
+  ]
+}
