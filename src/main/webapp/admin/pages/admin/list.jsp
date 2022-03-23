@@ -9,8 +9,9 @@
 <html>
 <head>
     <title>USERLIST</title>
-    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
-    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <jsp:include page="../common/basePath.jsp"></jsp:include>
+    <link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="static/admin/css/public.css" media="all">
 </head>
 <body>
 <div class="layuimini-container">
@@ -57,8 +58,8 @@
 
     </div>
 </div>
-<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="../../js/lay-module/layuimini/miniTab.js" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/js/lay-module/layuimini/miniTab.js" charset="utf-8"></script>
 <script>
     layui.use(['form', 'table'], function () {
         var $ = layui.jquery,
@@ -66,7 +67,7 @@
             table = layui.table;
         table.render({
             elem: '#currentTableId',
-            url: 'adminServlet?action=queryAdmins',
+            url: 'admin/adminServlet?action=queryAdmins',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -149,7 +150,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['70%', '70%'],
-                    content: 'adminServlet?action=updateAdmin&id=' + data.id + '&name=' + data.name + '&phone=' + data.phone + '&information=' + data.information + '&email=' + data.email + '&password=' + data.password
+                    content: 'admin/adminServlet?action=updateAdmin&id=' + data.id + '&name=' + data.name + '&phone=' + data.phone + '&information=' + data.information + '&email=' + data.email + '&password=' + data.password
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -157,7 +158,7 @@
                 return false;
             } else if (obj.event === 'delete') {
                 layer.confirm('真的删除行么', function (index) {
-                    $.post("adminServlet?action=deleteAdmin&id="+data.id,function(){
+                    $.post("admin/adminServlet?action=deleteAdmin&id="+data.id,function(){
                         obj.del();
                         layer.close(index);
                         window.location.reload();

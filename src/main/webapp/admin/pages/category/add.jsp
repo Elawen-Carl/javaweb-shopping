@@ -6,8 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
-<link rel="stylesheet" href="../../css/public.css" media="all">
+<jsp:include page="../common/basePath.jsp"></jsp:include>
+<link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
+<link rel="stylesheet" href="static/admin/css/public.css" media="all">
 <div class="layui-form layuimini-form">
     <div class="layui-form-item">
         <label class="layui-form-label required">pid</label>
@@ -36,8 +37,8 @@
     </div>
 </div>
 
-<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="../../js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/js/lay-config.js?v=2.0.0" charset="utf-8"></script>
 <script>
     layui.use(['form','miniTab','layer'], function () {
         var form = layui.form,
@@ -48,7 +49,7 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-            $.post("adminServlet?action=addCategory",data.field,function (res) {
+            $.post("admin/adminServlet?action=addCategory",data.field,function (res) {
                 parent.window.location.reload();
             });
         });

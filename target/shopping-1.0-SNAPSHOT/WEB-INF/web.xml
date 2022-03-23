@@ -44,6 +44,16 @@
         <url-pattern>/orderServlet</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>ManagerFilter</filter-name>
+        <filter-class>com.czklps.filter.ManagerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ManagerFilter</filter-name>
+        <url-pattern>/admin/pages/*</url-pattern>
+        <url-pattern>/admin/index.jsp</url-pattern>
+    </filter-mapping>
+    
     <!--error-page标签配置，服务器出错之后，自动跳转的页面-->
     <error-page>
         <!--error-code是错误类型-->

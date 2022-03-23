@@ -10,8 +10,9 @@
 <html>
 <head>
     <title>product list</title>
-    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
-    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <jsp:include page="../common/basePath.jsp"></jsp:include>
+    <link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="static/admin/css/public.css" media="all">
 </head>
 <body>
 <div class="layuimini-container">
@@ -71,8 +72,8 @@
 
     </div>
 </div>
-<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="../../js/lay-module/layuimini/miniTab.js" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/js/lay-module/layuimini/miniTab.js" charset="utf-8"></script>
 <script>
     layui.use(['form', 'table'], function () {
         var $ = layui.jquery,
@@ -80,7 +81,7 @@
             table = layui.table;
 
 
-        $.post("adminServlet?action=queryCategories",function (res) {
+        $.post("admin/adminServlet?action=queryCategories",function (res) {
             let categories = (JSON.parse(res)).data;
             $("select[name=categoryid]").empty();
             var html = "<option value=''>所有类别</option>"
@@ -95,7 +96,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: 'adminServlet?action=queryProducts',
+            url: 'admin/adminServlet?action=queryProducts',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -167,7 +168,7 @@
                     offset: '0px',
                     shadeClose: true,
                     area: ['1000px', '100%'],
-                    content: 'adminServlet?action=addProduct',
+                    content: 'admin/adminServlet?action=addProduct',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -195,7 +196,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['70%', '70%'],
-                    content: 'adminServlet?action=updateProduct&id=' + data.id + '&name='+data.name+'&url='+data.url+'&price='+data.price+'&descr='+data.descr+'&categoryid='+data.categoryid,
+                    content: 'admin/adminServlet?action=updateProduct&id=' + data.id + '&name='+data.name+'&url='+data.url+'&price='+data.price+'&descr='+data.descr+'&categoryid='+data.categoryid,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -203,7 +204,7 @@
                 return false;
             } else if (obj.event === 'delete') {
                 layer.confirm('真的删除行么', function (index) {
-                    $.post("adminServlet?action=deleteProduct&id="+obj.data.id,function(res){
+                    $.post("admin/adminServlet?action=deleteProduct&id="+obj.data.id,function(res){
                         obj.del();
                         layer.close(index);
                     });

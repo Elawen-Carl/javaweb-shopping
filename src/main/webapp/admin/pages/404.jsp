@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>404</title>
+    <jsp:include page="common/basePath.jsp"></jsp:include>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
     <style>
         .error .clip .shadow {height:180px;}
         .error .clip:nth-of-type(2) .shadow {width:130px;}
@@ -71,7 +72,7 @@
         </div>
     </div>
 </div>
-<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
 <script>
     function randomNum() {
         return Math.floor(Math.random() * 9) + 1;

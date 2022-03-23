@@ -1,15 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.czklps.Pojo.Category" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: 波波哥
-  Date: 2022/1/2
-  Time: 11:49
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
-<link rel="stylesheet" href="../../css/public.css" media="all">
+<jsp:include page="../common/basePath.jsp"></jsp:include>
+<link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
+<link rel="stylesheet" href="static/admin/css/public.css" media="all">
 <div class="layui-form layuimini-form">
     <input type="hidden" name="id" value="${ requestScope.id }">
     <div class="layui-form-item">
@@ -71,8 +67,8 @@
         </div>
     </div>
 </div>
-<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="../../js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/js/lay-config.js?v=2.0.0" charset="utf-8"></script>
 <script>
     layui.use(['form','upload','layer'], function () {
         var form = layui.form,
@@ -82,7 +78,7 @@
         //添加判断
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-            $.post("adminServlet?action=updateProductOk",data.field,function (res) {
+            $.post("admin/adminServlet?action=updateProductOk",data.field,function (res) {
                 console.log(data.field);
                 parent.window.location.reload();
             });
@@ -90,7 +86,7 @@
         // 监听提交
         upload.render({
             elem: '#upload',
-            url: 'adminServlet?action=updateProductOk',
+            url: 'admin/adminServlet?action=updateProductOk',
             auto: false,//选择文件后不自动上传
             bindAction: '#saveBtn',
             //上传前的回调

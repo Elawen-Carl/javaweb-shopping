@@ -5,7 +5,7 @@
   },
   "logoInfo": {
     "title": "LAYUI MINI",
-    "image": "admin/images/logo.png",
+    "image": "static/admin/images/logo.png",
     "href": ""
   },
   "menuInfo": [

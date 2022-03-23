@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>后台管理-登陆</title>
+    <jsp:include page="common/basePath.jsp"></jsp:include>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
     <style>
         html, body {width: 100%;height: 100%;overflow: hidden}
         body {background: #1E9FFF;}
@@ -32,7 +33,7 @@
 <div class="layui-container">
     <div class="admin-login-background">
         <div class="layui-form login-form">
-            <form class="layui-form" method="post" action="adminServlet">
+            <form class="layui-form" method="post" action="admin/adminServlet">
                 <input type="hidden" name="action" value="loginAdmin">
                 <div class="layui-form-item logo-title">
                     <h1>LayuiMini后台登录</h1>
@@ -57,9 +58,9 @@
         </div>
     </div>
 </div>
-<script src="lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
-<script src="lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="lib/jq-module/jquery.particleground.min.js" charset="utf-8"></script>
+<script src="static/admin/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/lib/jq-module/jquery.particleground.min.js" charset="utf-8"></script>
 <script>
     layui.use(['form'], function () {
         var form = layui.form,

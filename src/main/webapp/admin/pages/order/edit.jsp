@@ -6,8 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
-<link rel="stylesheet" href="../../css/public.css" media="all">
+<jsp:include page="../common/basePath.jsp"></jsp:include>
+<link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
+<link rel="stylesheet" href="static/admin/css/public.css" media="all">
 <div class="layui-form layuimini-form">
     <input type="hidden" name="id" value="${ requestScope.id }">
     <div class="layui-form-item">
@@ -46,9 +47,9 @@
         </div>
     </div>
 </div>
-<script src="../../lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
-<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="../../js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+<script src="static/admin/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/js/lay-config.js?v=2.0.0" charset="utf-8"></script>
 <script>
     layui.use(['form'], function () {
         var form = layui.form,
@@ -60,7 +61,7 @@
         //监听提交
         upload.render({
             elem: '#upload',
-            url: 'adminServlet?action=updateProductOk',
+            url: 'admin/adminServlet?action=updateProductOk',
             auto: false,//选择文件后不自动上传
             bindAction: '#saveBtn',
             //上传前的回调

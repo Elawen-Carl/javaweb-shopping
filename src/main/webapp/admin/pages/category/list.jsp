@@ -2,8 +2,9 @@
 <head>
     <meta charset="UTF-8">
     <title>menu</title>
-    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
-    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <jsp:include page="../common/basePath.jsp"></jsp:include>
+    <link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="static/admin/css/public.css" media="all">
     <style>
         .layui-btn:not(.layui-btn-lg ):not(.layui-btn-sm):not(.layui-btn-xs) {
             height: 34px;
@@ -36,8 +37,8 @@
     <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="addproduct">在此类别下添加商品</a>
 </script>
 </script>
-<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="../../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
     layui.use(['table', 'miniTab', 'treetable'], function () {
         var $ = layui.jquery;
@@ -53,7 +54,7 @@
             treeIdName: 'id',
             treePidName: 'pid',
             elem: '#munu-table',
-            url: 'adminServlet?action=queryCategories',
+            url: 'admin/adminServlet?action=queryCategories',
             page: false,
             cols: [[
                 {type: 'numbers'},
@@ -108,7 +109,7 @@
                     content: '确定要删除 '+data.id+' 吗?'
                     ,btn: ['确定', '取消']
                     ,yes: function(index, layero){
-                        $.post("adminServlet?action=deleteCategory",data,function (res) {
+                        $.post("admin/adminServlet?action=deleteCategory",data,function (res) {
                             let data = (JSON.parse(res));
                             if(data.code==1){
                                 layer.msg(data.msg);
@@ -170,7 +171,7 @@
                     offset: '100px',
                     shadeClose: true,
                     area: ['50%', '70%'],
-                    content: "adminServlet?action=addProduct&categoryid="+data.id
+                    content: "admin/adminServlet?action=addProduct&categoryid="+data.id
                 })
             }
         });

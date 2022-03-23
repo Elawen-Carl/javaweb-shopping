@@ -9,8 +9,9 @@
 <html>
 <head>
     <title>product list</title>
-    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
-    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <jsp:include page="../common/basePath.jsp"></jsp:include>
+    <link rel="stylesheet" href="static/admin/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="static/admin/css/public.css" media="all">
 </head>
 <body>
 <div class="layuimini-container">
@@ -69,8 +70,8 @@
 
     </div>
 </div>
-<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
-<script src="../../js/lay-module/layuimini/miniTab.js" charset="utf-8"></script>
+<script src="static/admin/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="static/admin/js/lay-module/layuimini/miniTab.js" charset="utf-8"></script>
 <script>
     layui.use(['form', 'table'], function () {
         var $ = layui.jquery,
@@ -78,7 +79,7 @@
             table = layui.table;
         table.render({
             elem: '#currentTableId',
-            url: 'adminServlet?action=queryProducts',
+            url: 'admin/adminServlet?action=queryProducts',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -158,7 +159,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: 'adminServlet?action=updateProduct&id=' + data.id
+                    content: 'admin/adminServlet?action=updateProduct&id=' + data.id
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -167,7 +168,7 @@
             } else if (obj.event === 'delete') {
                 layer.confirm('真的删除行么', function (index) {
                     console.log(obj.data.id);
-                    $.post("adminServlet?action=deleteProduct&id="+obj.data.id,function(){
+                    $.post("admin/adminServlet?action=deleteProduct&id="+obj.data.id,function(){
                         obj.del();
                         layer.close(index);
                     });
