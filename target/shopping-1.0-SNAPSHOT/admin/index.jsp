@@ -5,4 +5,5 @@
 </c:if>
 <c:if test="${ sessionScope.admin }">
     <jsp:forward page="pages/index.jsp"></jsp:forward>
+    
 </c:if>
