@@ -9,6 +9,7 @@ import com.czklps.Pojo.User;
 import com.czklps.exception.*;
 import com.czklps.service.*;
 import com.czklps.service.Impl.*;
+import com.czklps.utils.LayuiData;
 import com.czklps.utils.WebUtils;
 import org.apache.commons.fileupload.*;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -21,9 +22,7 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class AdminServlect extends BaseServlet{
     private UserService userService = new UserServiceImpl();
@@ -32,6 +31,12 @@ public class AdminServlect extends BaseServlet{
     private CategoryService categoryService = new CategoryServiceImpl();
     private OrderService orderService = new OrderServiceImpl();
 
+    protected void cheoutLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        session.removeAttribute("admin");
+
+    }
+
     protected void queryAdmins(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uname = req.getParameter("uname");
         String phone = req.getParameter("phone");
@@ -39,24 +44,22 @@ public class AdminServlect extends BaseServlet{
         Integer pageSize = WebUtils.parseInt(req.getParameter("limit"),10);
         List<Admin> admins = new ArrayList<Admin>();
         int count = adminService.queryAdmins(admins, uname, phone ,pageNo, pageSize);
-        JSONArray jsonArray = new JSONArray();
+        LayuiData layData = new LayuiData();
         for (Admin admin : admins) {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("id",admin.getId());
-            jsonObject.put("name",admin.getName());
-            jsonObject.put("password",admin.getPassword());
-            jsonObject.put("phone",admin.getPhone());
-            jsonObject.put("createtime",admin.getCreatetime());
-            jsonObject.put("email",admin.getEmail());
-            jsonObject.put("information",admin.getInformation());
-            jsonArray.add(jsonObject);
+            JSONObject field = new JSONObject();
+            field.put("id",admin.getId());
+            field.put("name",admin.getName());
+            field.put("password",admin.getPassword());
+            field.put("phone",admin.getPhone());
+            field.put("createtime",admin.getCreatetime());
+            field.put("email",admin.getEmail());
+            field.put("information",admin.getInformation());
+            layData.setField(field);
         }
-        JSONObject data = new JSONObject();
-        data.put("data",jsonArray);
-        data.put("code",0);
-        data.put("msg","");
-        data.put("count", count);
-        resp.getWriter().println(data);
+        layData.setCode(0);
+        layData.setMsg("");
+        layData.setCount(count);
+        resp.getWriter().println(layData.getData());
     }
 
     protected void updateAdmin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -158,21 +161,18 @@ public class AdminServlect extends BaseServlet{
         Integer id = Integer.parseInt(req.getParameter("id"));
         Integer pid = Integer.parseInt(req.getParameter("pid"));
         boolean isLeaf = Boolean.parseBoolean(req.getParameter("isleaf"));
-        JSONArray jsonArray = new JSONArray();
-        JSONObject data = new JSONObject();
+        LayuiData layuiData = new LayuiData();
         try {
             categoryService.deleteCategory(id,pid,isLeaf);
-            data.put("code",0);
-            data.put("count",0);
-            data.put("msg","删除成功");
-            data.put("data",jsonArray);
-            resp.getWriter().println(data);
+            layuiData.setCount(0);
+            layuiData.setMsg("删除成功");
+            layuiData.setCode(0);
+            resp.getWriter().println(layuiData.getData());
         } catch (SQLException throwables) {
-            data.put("code",1);
-            data.put("count",0);
-            data.put("msg","此类别下还有商品请将商品的分类修改后在进行删除！！");
-            data.put("data",jsonArray);
-            resp.getWriter().println(data);
+            layuiData.setCount(0);
+            layuiData.setMsg("此类别下还有商品请将商品的分类修改后在进行删除！！");
+            layuiData.setCode(1);
+            resp.getWriter().println(layuiData.getData());
         }
     }
 
@@ -180,18 +180,18 @@ public class AdminServlect extends BaseServlet{
         int userCount = userService.queryTotalCount();
         int productCount = productService.queryTotalCount();
         int orderCount = orderService.queryTotalCount();
-        JSONArray jsonArray = new JSONArray();
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("userCount",userCount);
-        jsonObject.put("productCount",productCount);
-        jsonObject.put("orderCount",orderCount);
-        jsonArray.add(jsonObject);
-        JSONObject data = new JSONObject();
-        data.put("code",0);
-        data.put("count",3);
-        data.put("msg","");
-        data.put("data",jsonArray);
-        resp.getWriter().println(data);
+
+        LayuiData layuiData = new LayuiData();
+        JSONObject field = new JSONObject();
+        field.put("userCount",userCount);
+        field.put("productCount",productCount);
+        field.put("orderCount",orderCount);
+
+        layuiData.setField(field);
+        layuiData.setCount(userCount+productCount+orderCount);
+        layuiData.setCount(0);
+        layuiData.setMsg("");
+        resp.getWriter().println(layuiData.getData());
     }
 
     protected void updateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

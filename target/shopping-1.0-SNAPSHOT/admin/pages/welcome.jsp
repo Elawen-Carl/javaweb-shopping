@@ -182,7 +182,7 @@
             echarts = layui.echarts;
 
         miniTab.listen();
-        $.post("admin/admin/adminServlet?action=queryAllDataCount",function(res){
+        $.post("admin/adminServlet?action=queryAllDataCount",function(res){
             let data = JSON.parse(res)
             $('#usernum').text(data.data[0].userCount)
             $('#productnum').text(data.data[0].productCount)
